@@ -1,0 +1,17 @@
+<div class="form-control w-50 position-absolute start-50 top-50 translate-middle">
+    <form class="m-3">
+        <div>
+            <h1>Login</h1>
+        </div>
+        <div>
+            <label for="emailuser">Email: </label>
+            <input type="email" class="form-control" [(ngModel)]="emailUser" [ngModelOptions]="{standalone: true}" id="emailuser"/>
+        </div>
+        <div>
+            <label for="passuser">Password: </label>
+            <input type="password" class="form-control mb-3" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" id="passuser"/>
+        </div>
+        <input type="button" class="btn btn-primary m-2" (click)="login()" value="Iniciar sesi&oacute;n"/>
+        <input type="button" class="btn btn-primary m-2" (click)="cambioARegistro()"  value="Registrarse"/>
+    </form>
+</div>

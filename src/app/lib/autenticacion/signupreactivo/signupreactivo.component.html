@@ -1,0 +1,56 @@
+<div class="form-control w-50 position-absolute start-50 top-50 translate-middle">
+    <div>
+        <h2>Registro de usuario</h2>
+    </div>
+    <form (ngSubmit)="signup()" [formGroup]="frmGroup">
+        <div>
+            <label for="emailuser">Nombre: </label>
+            <input type="text" class="form-control" 
+               formControlName="nombre" id="nombreusuario"/>
+        </div>
+        <div *ngIf="frmGroup.get('nombre')?.touched && frmGroup.get('nombre')?.errors?.['required']"> ESTE VALOR ES REQUERIDO</div>
+        <div *ngIf="frmGroup.get('nombre')?.touched && frmGroup.get('nombre')?.errors?.['minlength']"> LA LONGITUD MINIMA ES DE {{ frmGroup.get('nombre')?.errors?.['minlength']?.requiredLength }}</div>
+        <div>
+            <label for="emailuser">Apellido: </label>
+            <input type="text" class="form-control" 
+                id="apellidousuario" formControlName="apellido"/>
+        </div>
+        <div>
+            <label for="emailuser">Celular: </label>
+            <input type="text" class="form-control" 
+                id="celularusuario" />
+        </div>
+        <div>
+            <label for="emailuser">Email: </label>
+            <input type="email" class="form-control"  
+                id="emailuser" />
+        </div>
+        <div>
+            <label for="emailuser">Contraseña: </label>
+            <input type="password" class="form-control"  
+                id="passwordusuario" />
+        </div>
+        <div class="mb-3">
+            <label for="emailuser">Confirme Contraseña: </label>
+            <input type="password" class="form-control"
+                id="confirmpassworduser" />
+        </div>
+        <div *ngIf="frmGroup.get('nombre')?.touched && frmGroup.get('nombre')?.errors?.['required']"> ESTE VALOR ES REQUERIDO</div>
+        <button type="submit" class="m-3 btn btn-success">
+            Registrar
+        </button>
+    </form>
+</div>
+<div class="toast-container top-0 end-0 p-3">
+    <div #toastAlertForm class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Alerta</strong>
+            <small class="text-body-secondary"></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{ mensajePassword }}
+        </div>
+    </div>
+</div>

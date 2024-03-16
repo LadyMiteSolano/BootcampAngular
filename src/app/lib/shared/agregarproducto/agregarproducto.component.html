@@ -1,0 +1,60 @@
+
+<button type="button" class="btn btn-primary ml-2" data-bs-toggle="modal" data-bs-target="#modalagregarproducto">
+    Agregar producto
+</button>
+<div class="modal fade" id="modalagregarproducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div>
+                        <h5>Datos del Producto</h5>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Nombre">Nombre</label>
+                            <input id="Nombre" class="form-control" type="text" required [(ngModel)]="nuevoProducto.producto" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div>
+                            <label for="Modelo">Modelo</label>
+                            <input class="form-control" type="text" required [(ngModel)]="nuevoProducto.modelo" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div>
+                            <label for="Proveedor">Proveedor</label>
+                            <input class="form-control" type="text" required [(ngModel)]="nuevoProducto.proveedor" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div>
+                            <label for="Precio">Precio</label>
+                            <input class="form-control" type="text" required [(ngModel)]="nuevoProducto.precio" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div>
+                            <label for="Stock">Stock</label>
+                            <input class="form-control" type="text" required [(ngModel)]="nuevoProducto.stock" [ngModelOptions]="{standalone: true}"/>
+                        </div>
+                        <div>
+                            <label for="categoria">categoria</label>
+                            <select class="form-select" [(ngModel)]="nuevoProducto.categoria" [ngModelOptions]="{standalone: true}">
+                                <option selected>Seleccione una categor&iacute;a...</option>
+                                <option value="OC">Ocio</option>
+                                <option value="VA">Varios</option>
+                                <option value="HT">Salud</option>
+                                <option value="CO">Cocina</option>
+                                <option value="">General</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="handleEventoCierreModal()"
+                            data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" (click)="handleEventoGuardar()">Agregar producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

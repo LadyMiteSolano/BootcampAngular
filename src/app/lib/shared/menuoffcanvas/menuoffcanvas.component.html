@@ -1,0 +1,16 @@
+<button type="button" class="btn btn-primary" (click)="open()">Abrir menu</button>
+<div class="offcanvas offcanvas-start" [ngClass]="{'show': show}">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Título del OffCanvas</h5>
+      <button type="button" class="btn-close" (click)="close()"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of menuItemsRol">
+          <i class="bi bi-{{ item.icon }}">
+              <a [routerLink]="item.ruta">{{item.opcion}}</a>
+          </i> 
+        </li>
+      </ul>
+    </div>
+  </div>

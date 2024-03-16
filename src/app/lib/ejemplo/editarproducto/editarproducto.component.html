@@ -1,0 +1,39 @@
+<div class="col-12">
+
+    <div>
+        <h5>Datos del Producto</h5>
+    </div>
+    <div>
+        <div>
+            <label for="Nombre">Nombre</label>
+            <input id="Nombre" class="form-control" type="text" required [(ngModel)]="productoSeleccionado.producto" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <div>
+            <label for="Modelo">Modelo</label>
+            <input class="form-control" type="text" required [(ngModel)]="productoSeleccionado.modelo" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <div>
+            <label for="Proveedor">Proveedor</label>
+            <input class="form-control" type="text" required [(ngModel)]="productoSeleccionado.proveedor" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <div>
+            <label for="Precio">Precio</label>
+            <input class="form-control" type="text" required [(ngModel)]="productoSeleccionado.precio" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <div>
+            <label for="Stock">Stock</label>
+            <input class="form-control" type="text" required [(ngModel)]="productoSeleccionado.stock" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <div>
+            <label for="categoria">categoria</label>
+            <select class="form-select" [(ngModel)]="productoSeleccionado.categoria" [ngModelOptions]="{standalone: true}">
+                <option selected>Seleccione una categor&iacute;a...</option>
+                <option value="OC">Ocio</option>
+                <option value="VA">Varios</option>
+                <option value="HT">Salud</option>
+                <option value="CO">Cocina</option>
+                <option value="">General</option>
+            </select>
+        </div>
+    </div>
+</div>

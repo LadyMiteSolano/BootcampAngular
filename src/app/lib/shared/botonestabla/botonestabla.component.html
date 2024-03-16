@@ -1,0 +1,4 @@
+<div class="btn-group" role="group">
+    <input (click)="eventEditar()" type="button" *ngIf="propertiesBtn.mostrarEditar" class="btn btn-{{propertiesBtn.bootstrapEditar}}" value="{{ propertiesBtn.labelEditar }}">
+    <input (click)="eventEliminar()" type="button" *ngIf="propertiesBtn.mostrarEliminar" class="btn btn-{{propertiesBtn.bootstrapEliminar}}" value="{{ propertiesBtn.labelEliminar }}">
+</div>

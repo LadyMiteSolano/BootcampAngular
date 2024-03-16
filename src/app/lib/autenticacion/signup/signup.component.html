@@ -1,0 +1,58 @@
+<div class="form-control w-50 position-absolute start-50 top-50 translate-middle">
+    <div>
+        <h2>Registro de usuario</h2>
+    </div>
+    <form #userForm="ngForm" (ngSubmit)="signup(userForm)">
+        <div>
+            <label for="emailuser">Nombre: </label>
+            <input type="text" class="form-control" [(ngModel)]="nombre" required minlength="5"
+                id="nombreusuario" name="nombreusuario" #nombreusuario="ngModel"/>
+            <div [hidden]="nombreusuario.valid || nombreusuario.pristine" class="alert alert-danger"> CAMPO INVALIDO </div>
+        </div>
+        <div>
+            <label for="emailuser">Apellido: </label>
+            <input type="text" class="form-control" [(ngModel)]="apellido" required 
+            name="apellidousuario" id="apellidousuario" #apellidousuario="ngModel"/>
+            <div [hidden]="apellidousuario.valid || apellidousuario.pristine" class="alert alert-danger"> CAMPO INVALIDO </div>
+        </div>
+        <div>
+            <label for="emailuser">Celular: </label>
+            <input type="text" class="form-control" [(ngModel)]="celular" name="celularusuario" required
+            id="celularusuario" #celularusuario="ngModel"/>
+            <div [hidden]="celularusuario.valid || celularusuario.pristine" class="alert alert-danger"> CAMPO INVALIDO </div>
+        </div>
+        <div>
+            <label for="emailuser">Email: </label>
+            <input type="email" class="form-control" [(ngModel)]="email" name="emailuser" required
+            id="emailuser" #emailuser="ngModel"/>
+            <div [hidden]="emailuser.valid || emailuser.pristine" class="alert alert-danger"> CAMPO INVALIDO </div>
+        </div>
+        <div>
+            <label for="emailuser">Contraseña: </label>
+            <input type="password" class="form-control" [(ngModel)]="password" required name="passwordusuario"
+                id="passwordusuario" />
+        </div>
+        <div class="mb-3">
+            <label for="emailuser">Confirme Contraseña: </label>
+            <input type="password" class="form-control" [(ngModel)]="passwordConfirm" required name="confirmpassworduser"
+                id="confirmpassworduser" />
+        </div>
+        <button type="submit" class="m-3 btn btn-success" >
+            Registrar
+        </button>
+        <input type="button" class="m-3 btn btn-success" (click)="volver()" value="Volver al login" />
+    </form>
+</div>
+<div class="toast-container top-0 end-0 p-3">
+    <div #toastAlertForm class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="..." class="rounded me-2" alt="...">
+            <strong class="me-auto">Alerta</strong>
+            <small class="text-body-secondary"></small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Error al enviar los formularios, valide los campos de entrada
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<button type="button" class="btn btn-primary ml-2" data-bs-toggle="modal" [attr.data-bs-target]="'#'+modalProducto">
+    Detalles del producto
+</button>
+<div class="modal fade" id="{{ modalProducto }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle Producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h5 class="card-title">{{ producto.producto }}</h5>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ producto.modelo }}</li>
+                        <li class="list-group-item">{{ producto.proveedor}}</li>
+                        <li class="list-group-item">{{ producto.precio | currency }}</li>
+                        <li class="list-group-item">
+                            <div [ngSwitch]="producto.categoria">
+                                <ng-template ngSwitchCase="OC">
+                                    <i class="bi bi-cart-fill">Ocio</i>
+                                </ng-template>
+                                <ng-template ngSwitchCase="VA">
+                                    <i class="bi bi-cart-fill">Varios</i>
+                                </ng-template>
+                                <ng-template ngSwitchCase="HT">
+                                    <i class="bi bi-capsule">Salud</i>
+                                </ng-template>
+                                <ng-template ngSwitchCase="CO">
+                                    <i class="bi bi-hand-thumbs-up-fill">General</i>
+                                </ng-template>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="handleEventoCierreModal('')"
+                        data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="handleEventoModal('')">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

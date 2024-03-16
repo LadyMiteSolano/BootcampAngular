@@ -1,0 +1,43 @@
+<div>
+    
+    <div class="d-flex justify-content-around">
+        <h2>Productos disponibles</h2>
+    </div>
+    <div class="d-flex justify-content-around">
+        <div>
+            <table class=" form-control table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Modelo</th>
+                        <th>Proveedor</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th class="text-center" colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of listaproducto">
+                        <td> {{ producto.producto }}</td>
+                        <td> {{ producto.modelo }}</td>
+                        <td> {{ producto.proveedor }}</td>
+                        <td> {{ producto.precio | currency }}</td>
+                        <td> {{ producto.stock | Generalpipe }}</td>
+                        <td> <input *ngIf="validarStock(producto)" type="button" class="btn btn-primary m-2 mh-100"
+                                value="Agregar" (click)="agregarProducto(producto)" />
+                            <input *ngIf="!validarStock(producto)" type="button" class="btn btn-primary m-2 mh-100"
+                                value="Agregar" (click)="agregarProducto(producto)" disabled />
+                            <app-detalleproducto [modalProducto]="producto.productoid"
+                                [producto]="producto"></app-detalleproducto>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div #divAgregarProducto>
+        <app-agregarproducto (eventoGuardar)="nuevoProducto($event)" (eventoCerrar)="mensajeCerrar($event)"></app-agregarproducto>
+    </div>
+    <app-tablecarrito (eventEliminar)="eliminarProducto($event)"></app-tablecarrito>
+    <app-valorespago></app-valorespago>
+</div>

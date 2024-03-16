@@ -1,0 +1,31 @@
+<div class="col-12">
+    <h2>
+        Lista de productos
+    </h2>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Modelo</th>
+            <th>Proveedor</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th class="text-center" colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of listaproducto">
+            <td> {{ producto.producto }}</td>
+            <td> {{ producto.modelo }}</td>
+            <td> {{ producto.proveedor }}</td>
+            <td> {{ producto.precio | currency }}</td>
+            <td> {{ producto.stock | Generalpipe }}</td>
+            <td>
+                <!--a [routerLink]="['/editarproducto/']" [queryParams]="{idproducto: producto.productoid, nombre: producto.producto}"> verProducto</a-->
+                <app-botonestabla [propertiesBtn]="btnTablaLProductos" (eventoEditar)="editarProducto(producto)"
+                    (eventoEliminar)="eliminarProducto(producto)"></app-botonestabla>
+            </td>
+        </tr>
+    </tbody>
+</table>
